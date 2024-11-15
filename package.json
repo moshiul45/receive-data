@@ -1,0 +1,27 @@
+{
+  "name": "receive-data",
+  "version": "1.0.0",
+  "description": "This Node.js project is designed to create a simple, efficient REST API that accepts file uploads. The API will serve as a data collection endpoint. This project will be used strictly for research purposes.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moshiul45/receive-data.git"
+  },
+  "author": "Md. Moshiul Azam",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/moshiul45/receive-data/issues"
+  },
+  "homepage": "https://github.com/moshiul45/receive-data#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  }
+}
