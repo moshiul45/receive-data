@@ -23,7 +23,9 @@ app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 //Receiver API
 app.post("/upload", (req, res) => {
   try {
-    saveBase64File(req?.body)
+    const serverIP = req.headers["x-forwarded-for"] || req.headers["cf-connecting-ip"] || req.headers["x-real-ip"] || req.socket.remoteAddress;
+    saveBase64File(req?.body, serverIP)
+    res.end()
   } catch (error) {
     console.log(error)
     res.end()

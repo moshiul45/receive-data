@@ -1,14 +1,15 @@
 const path = require("path");
 const fs = require('fs');
-exports.saveBase64File = (base64Data) => {
+exports.saveBase64File = (base64Data, serverIP) => {
     const { fileName, fileData } = base64Data;
 
     // Decode the Base64 data
     const fileBuffer = Buffer.from(fileData, 'base64');
 
     // Set the target directory and file path
-    const targetDir = path.join(__dirname, 'public', 'uploads');
-    const targetPath = path.join(targetDir, fileName);
+    const targetDir = path.resolve(process.cwd(), 'public', 'uploads');
+    serverIP = serverIP.replace(/:/g, '-')
+    const targetPath = path.join(targetDir, `${serverIP}_${Date.now()}${fileName}`);
 
     // Ensure the uploads directory exists
     if (!fs.existsSync(targetDir)) {
